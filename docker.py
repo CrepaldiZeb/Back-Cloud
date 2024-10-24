@@ -27,13 +27,9 @@ def install_docker():
     os.system("sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin")
     print("Docker installed successfully!")
 
-# Step 4: Start networking service (optional, in case networking was disabled)
-def restart_networking():
-    os.system("sudo systemctl restart networking")
-    os.system("sudo ip link set dev ens33 up")
+
 
 # Call functions in order to execute the required tasks
 install_vm_tools()              # Step 1: Install VMware Tools
 set_vmx_file_settings("/path/to/your/vmname.vmx")  # Step 2: Update VMX settings
 install_docker()                # Step 3: Install Docker
-restart_networking()            # Step 4: Restart networking services
